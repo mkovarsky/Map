@@ -3,10 +3,7 @@ package ru.netology.manager;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -26,23 +23,14 @@ public class FileOpenManagerTest {
     @Test
     void shouldShowAllApps() {
         Collection<String> actual = manager.getAllApps();
-        Collection<String> expected = new ArrayList<>();
-        expected.add("Adobe Photoshop");
-        expected.add("Notepad");
-        expected.add("Microsoft Word");
-        expected.add("Google Chrome");
-
+        Collection<String> expected = new ArrayList<>(Arrays.asList("Adobe Photoshop","Notepad","Microsoft Word","Google Chrome"));
         assertArrayEquals(expected.toArray(), actual.toArray());
     }
 
     @Test
     void shouldShowAllExtensions() {
         Set<String> actual = manager.getAllExtensions();
-        Set<String> expected = new HashSet<>();
-        expected.add("psd");
-        expected.add("txt");
-        expected.add("html");
-        expected.add("doc");
+        Set<String> expected = new HashSet<>(Arrays.asList("psd","txt","html","doc"));
         assertArrayEquals(expected.toArray(), actual.toArray());
     }
 

@@ -6,25 +6,25 @@ import java.util.*;
 
 @NoArgsConstructor
 public class FileOpenManager {
-    Map<String, String> map = new HashMap<>();
+    private Map<String, String> extensionMap = new HashMap<>();
 
     public void registerNew(String extension, String app) {
-        map.put(extension.toLowerCase(), app);
+        extensionMap.put(extension.toLowerCase(), app);
     }
 
     public String getApp(String extension) {
-        return map.get(extension.toLowerCase());
+        return extensionMap.get(extension.toLowerCase());
     }
 
     public void removeExtension(String extension) {
-        map.remove(extension);
+        extensionMap.remove(extension.toLowerCase());
     }
 
     public Collection<String> getAllApps() {
-        return map.values();
+        return extensionMap.values();
     }
 
     public Set<String> getAllExtensions() {
-        return map.keySet();
+        return extensionMap.keySet();
     }
 }
