@@ -23,14 +23,16 @@ public class FileOpenManagerTest {
     @Test
     void shouldShowAllApps() {
         Collection<String> actual = manager.getAllApps();
-        Collection<String> expected = new ArrayList<>(Arrays.asList("Adobe Photoshop","Notepad","Microsoft Word","Google Chrome"));
+        Collection<String> expected = new ArrayList<>(Arrays.asList("Adobe Photoshop", "Notepad", "Microsoft Word", "Google Chrome"));
+
         assertArrayEquals(expected.toArray(), actual.toArray());
     }
 
     @Test
     void shouldShowAllExtensions() {
         Set<String> actual = manager.getAllExtensions();
-        Set<String> expected = new HashSet<>(Arrays.asList("psd","txt","html","doc"));
+        Set<String> expected = new HashSet<>(Arrays.asList("psd", "txt", "html", "doc"));
+
         assertArrayEquals(expected.toArray(), actual.toArray());
     }
 
@@ -38,10 +40,8 @@ public class FileOpenManagerTest {
     void shouldRemoveExtension() {
         manager.removeExtension("psd");
         Collection<String> actual = manager.getAllApps();
-        Collection<String> expected = new ArrayList<>();
-        expected.add("Notepad");
-        expected.add("Microsoft Word");
-        expected.add("Google Chrome");
+        Collection<String> expected = new ArrayList<>(Arrays.asList("Notepad", "Microsoft Word", "Google Chrome"));
+
         assertArrayEquals(expected.toArray(), actual.toArray());
     }
 
@@ -49,12 +49,14 @@ public class FileOpenManagerTest {
     void shouldGetAppForExistedExtension() {
         String actual = manager.getApp("txt");
         String expected = "Notepad";
+
         assertEquals(expected, actual);
     }
+
     @Test
     void shouldNotGetAppForNotExistedExtension() {
         String actual = manager.getApp("sys");
+
         assertNull(actual);
     }
-
 }
